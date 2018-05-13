@@ -1,0 +1,36 @@
+.devAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.thumbnail.right-caption>img {
+    float: left;
+    margin-right: 9px;
+}
+
+.thumbnail.right-caption {
+    float: left;
+}
+
+.thumbnail.right-caption>.caption {
+    padding: 4px;
+}
+
+.post-title {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.post-title a {
+    white-space: normal;
+    color: '@breadcrumbs-current-color';
+}
+
+.post-title p {
+    margin-bottom: 0;
+    color: gray;
+    font-size: 14px;
+    margin-top: -4px;
+}

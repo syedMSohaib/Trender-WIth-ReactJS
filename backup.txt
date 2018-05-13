@@ -1,0 +1,99 @@
+import React, { Component } from 'react';
+import trending from './github'
+
+class GithubComp extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            period: 'daily',
+            isRepo: 'repositories',
+        }
+    }
+
+    componentWillMount(){
+        trending(this.state.isRepo, this.state.period)
+        .then(repos => this.setState({ gitHubdata: repos }));
+    }
+
+    handleTrendType(e) {
+        var type = e.target.value;
+        alert(type);
+       this.setState({isRepo, type });
+    }
+   
+
+    handlePeriodType(e) {
+        var period = e.target.value;
+        alert(period);
+       this.setState({period, type });
+    }
+   
+    
+   
+
+
+    render() {
+ 
+        if (!this.state.gitHubdata)
+            return <h1>Loading ...</h1>                
+        return (
+           <div className="container" style={{ textAlign: 'left' }}>       
+                <div className="row">
+                    <div className="col-md-7">
+                        {this.state.isRepo ? (
+                            <h5 style={{ marginLeft: "5%" }}>GitHub Trending Repositories</h5>
+                        ) : (
+                            <h5 style={{ marginLeft: "5%" }} >GitHub Trending Developers</h5>
+                        )}
+                    </div>
+                    <div className="col-md-5">
+                        <select className="form-control col-sm-5 pull-right"
+                                onChange={ (e) => this.handlePeriodType(e) }>                        
+                            <option value="daily">Trending: Today</option>
+                            <option value="weekly">Trending: This Week</option>
+                        </select>
+                        <select className="form-control  col-sm-7 pull-right"
+                                onChange={ (e) => this.handleTrendType(e) }>
+                            <option value="repositories">Trending: Repositories</option>
+                            <option value="developer">Trending: Developers</option>
+                        </select>
+                    </div>
+                </div>
+
+            <ul>
+                {
+                    this.state.gitHubdata.map( (res) =>              
+                    <div key={res.author} className="row">
+                    <div className="card-body">
+                    <blockquote className="card-blockquote">
+                    <a href="{res.href}">
+                        <h5 style={{ color:'#0366D6'}}>{res.author} / <b> {res.name} </b></h5>
+                    </a>
+                    <small style={{float:'left', fontSize: 12, color: "#586069"}}>
+                        {res.description}
+                    </small>
+                    <footer>
+                        <br/>
+                        <p className="pull-left">
+                            <i style={{ color: "#586069"}} 
+                            className="fa fa-star" aria-hidden="true"></i>&nbsp;{res.stars}
+                        </p>
+                        <p className="pull-left">
+                            <i style={{ color: "#586069", marginLeft:10}} className="fa fa-code-fork" 
+                            aria-hidden="true"></i>&nbsp;{res.forks}
+                        </p>                            
+                        
+                    </footer>
+                    </blockquote>
+                    </div>
+                    </div>
+                    )
+                }
+            </ul>
+             </div>
+        );
+    }
+}
+
+export default GithubComp;
