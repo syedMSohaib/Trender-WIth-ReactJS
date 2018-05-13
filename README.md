@@ -10,10 +10,14 @@ All the Trending you want is in one place. Using Trender you can check github tr
 To Run
 ======
 
-First 
+First
+
 > npm install
+
 Second
-> npm start
+                    
+> npm start。
+
 
 
 Screenshots
