@@ -1,5 +1,0 @@
-Trender--Get-Trendings-with-React
-Get Trending with ReactJS for websites Like GitHub, Youtube, Insta, Twitter and Manymore at once place
-  
- https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode=IN&maxResults=25&key=AIzaSyDm_N69dmq-Jz3nm8Om2dcY0tuIONcg1RY
- https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=ePO5M5DE01I&key={YOUR_API_KEY}
